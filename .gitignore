@@ -1,0 +1,30 @@
+*.class
+target/
+*.log
+*.doc
+sonar-project.properties
+.sonar/
+build/
+*.db
+# Windows image file caches
+Thumbs.db 
+
+# Folder config file
+Desktop.ini
+
+#eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+.classpath
+.settings/
+.loadpath
+*.orig
+
