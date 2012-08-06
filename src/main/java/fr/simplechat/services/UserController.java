@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.simplechat.model.User;
+import fr.simplechat.services.exception.ServiceException;
 
 
 
@@ -27,9 +28,14 @@ public class UserController {
 	
 	public String doSave(){
 		log.debug("doSave {}",user);
-		productService.createUser(user);
+		try {
+			productService.createUser(user);
+			return "confirmationUser.jsf";
+		} catch (ServiceException e) {
+			return "signin.xhtml";
+		}
 		
-		return "confirmationUser.jsf";
+		
 	}
 
 

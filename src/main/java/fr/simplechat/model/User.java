@@ -1,9 +1,15 @@
 package fr.simplechat.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
+
 import javax.persistence.Table;
+
+import org.bson.types.ObjectId;
+
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Id;
+import com.google.code.morphia.annotations.Indexed;
+import com.google.code.morphia.utils.IndexDirection;
 
 
 @Entity
@@ -11,10 +17,12 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
+	private ObjectId id;
+	
+	
+	@Indexed(value=IndexDirection.ASC, name="email", unique=true) 
 	private String email;
-	@Column(name = "password")
 	private String password;
-	@Column(name = "name")
 	private String name;
 	public String getEmail() {
 		return email;
@@ -73,9 +81,16 @@ public class User {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [email=").append(email).append(", password=")
-				.append(password).append(", name=").append(name).append("]");
+		builder.append("User [id=").append(id).append(", email=").append(email)
+				.append(", password=").append(password).append(", name=")
+				.append(name).append("]");
 		return builder.toString();
+	}
+	public ObjectId getId() {
+		return id;
+	}
+	public void setId(ObjectId id) {
+		this.id = id;
 	}
 
 }
