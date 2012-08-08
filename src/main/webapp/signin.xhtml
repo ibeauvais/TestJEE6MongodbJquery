@@ -16,31 +16,45 @@
   <li class="active"><a href="#">Inscription</a></li>
 </ul>
  <div class="container">
-     	<h:form class="form-horizontal" >
+     	<h:form  id="inputForm" class="form-horizontal" >
   			<fieldset>
     <legend>Inscription</legend>
+    
      <div class="control-group">
-      	<label class="control-label" for="nom">Nom</label>
+      	<label class="control-label" for="nom"  >Nom</label>
       	<div class="controls">
-      	  <h:inputText id="nom" class="input-xlarge"  value="#{userController.user.name}"/>
+      	  <h:inputText id="nom" class="input-xlarge"  value="#{userController.user.name}" required="true" /> 
+      	  <h:message for="nom" class="alert alert-error" />
       </div>
     </div>
     <div class="control-group">
       	<label class="control-label" for="email">Email</label>
       	<div class="controls">
-              	  <h:inputText id="email" value="#{userController.user.email}" class="input-xlarge" />
+              	  <h:inputText id="email" value="#{userController.user.email}" class="input-xlarge" required="true"/>
+              	  <h:message for="email" class="alert alert-error" />
       </div>
     </div>
      <div class="control-group">
       	<label class="control-label" for="password">Password</label>
       	<div class="controls">
-      	 <h:inputSecret id="password" value="#{userController.user.password}" class="input-xlarge" />
+      	 <h:inputSecret id="password" value="#{userController.user.password}" class="input-xlarge" required="true"/>
+      	   <h:message for="password" class="alert alert-error" />
       </div>
-    </div>
+       </div>
+      <div class="control-group">
+      	<label class="control-label" for="verifPassword">Vérification password</label>
+      	<div class="controls">
+      	 <h:inputSecret id="verifPassword" value="#{userController.verifPassword}" class="input-xlarge" required="true"/>
+      	   <h:message for="verifPassword" class="alert alert-error" />
+      </div>
+      </div>
+   
      <div class="form-actions">
       <h:commandButton  class="btn btn-primary" value="Créer" action="#{userController.doSave}" type="submit"/>
             <button class="btn">Cancel</button>
           </div>
+          <br/>
+          <h:message globalOnly="true" for="inputForm" errorClass="alert alert-error"  />
   </fieldset>
 </h:form>
      </div>

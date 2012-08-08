@@ -3,8 +3,11 @@ package fr.simplechat.model;
 
 
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.bson.types.ObjectId;
+import org.hibernate.validator.constraints.Email;
 
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
@@ -16,14 +19,19 @@ import com.google.code.morphia.utils.IndexDirection;
 @Table(name="User")
 public class User {
 	
-	@Id
-	private ObjectId id;
+@Id
+private ObjectId id;
 	
+ @NotNull @Size(min = 2, max = 50)  @Email
+ @Indexed(value=IndexDirection.ASC, name="email", unique=true)
+ private String email;
+	 
+ @NotNull @Size(min =6, max = 50)
+ private String password;
 	
-	@Indexed(value=IndexDirection.ASC, name="email", unique=true) 
-	private String email;
-	private String password;
-	private String name;
+ @NotNull @Size(min = 2, max = 50)
+ private String name;
+	 
 	public String getEmail() {
 		return email;
 	}

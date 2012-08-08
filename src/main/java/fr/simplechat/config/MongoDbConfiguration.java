@@ -11,6 +11,7 @@ import com.google.code.morphia.Datastore;
 import com.google.code.morphia.Morphia;
 import com.google.code.morphia.logging.MorphiaLoggerFactory;
 import com.google.code.morphia.logging.slf4j.SLF4JLogrImplFactory;
+import com.google.code.morphia.validation.MorphiaValidation;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 
@@ -31,7 +32,7 @@ public class MongoDbConfiguration {
 		log.debug(">> initMorphia");
 		Morphia morphia=new Morphia();
 		morphia.mapPackage("fr.simplechat.model");
-		
+		new MorphiaValidation().applyTo(morphia);
 		return morphia;
 		
 	}
