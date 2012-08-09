@@ -1,8 +1,6 @@
 package fr.simplechat.web;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -40,7 +38,7 @@ public class UserController {
 			productService.createUser(user);
 			return "confirmationUser.jsf";
 		} catch (ServiceException e) {
-			addGlobalError(e.getMessage());
+			MessagesTools.addGlobalError(e.getMessage());
 			return null;
 		}
 		
@@ -53,25 +51,18 @@ public class UserController {
 		if(verifPassword!=null && verifPassword.equals(user.getPassword()))
 			return true;
 		
-		addErrorForComponent("inputForm:verifPassword","Différent de password");
+		MessagesTools.addErrorForComponent("inputForm:verifPassword",MessagesTools.getMessage("passwordNotMatch"));
 		return false;
 		
 	}
 
 
 
-	private void addGlobalError(String message) {
-		 addErrorForComponent("inputForm",message);
-		
-	}
+	
 
 
 
-	private void addErrorForComponent(String componentId,String message) {
-		FacesContext context = FacesContext.getCurrentInstance();
-	    context.addMessage(componentId, new FacesMessage(FacesMessage.SEVERITY_ERROR,message, null));
-	}
-
+	
 
 
 	public User getUser() {

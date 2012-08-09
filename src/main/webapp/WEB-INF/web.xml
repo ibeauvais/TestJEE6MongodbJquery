@@ -5,6 +5,6 @@
 
   
   <welcome-file-list>
-    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.faces</welcome-file>
   </welcome-file-list>	
 </web-app>

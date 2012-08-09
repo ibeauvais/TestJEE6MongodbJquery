@@ -2,21 +2,22 @@
 <html lang="en">
    <head>
     	<meta charset="utf-8"/>
-    	<title>Simple Chat</title>
+    	<title>#{i18n.title}</title>
     	<link href="css/bootstrap.css" rel="stylesheet"/>
     </head>
     <body>
     <ul class="nav nav-pills">
-  <li class="active">
-    <a href="index.htm">Home</a>
+  <li >
+    <a href="index.htm">#{i18n['menu.home']}</a>
   </li>
-  <li><a href="signin.jsf">Inscription</a></li>
+  <li class="active"> <a href="signin.jsf">#{i18n['menu.registration']}</a></li>
 </ul>
     
     
      <div class="container">
      	<div class="alert alert-success">
-  Le compte a été crée avec succès
+     	#{i18n.creationSuccess}
+  
 </div>
      </div>
     </body>
