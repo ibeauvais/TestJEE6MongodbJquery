@@ -1,5 +1,7 @@
 package fr.simplechat.services;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -29,6 +31,14 @@ public class UserService {
 			throw new ServiceException("Adresse email déja utilisée");
 		
 		userRepository.createUser(user);
+		
+	}
+	
+	public List<User> findAll() {
+		
+		
+		return userRepository.findAll();
+		
 		
 	}
 

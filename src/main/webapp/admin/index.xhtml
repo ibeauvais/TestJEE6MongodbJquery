@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<h:head>
+		<meta charset="utf-8" />
+		<title>#{i18n.adminTitle}</title>
+		<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+	</h:head>
+	<h:body>
+		<ul class="nav nav-pills">
+				
+   			 	<li class="active">
+       			 <a href="#">Users</a>
+    			</li>
+		
+		</ul>
+		<div class="container">
+		<h2>#{i18n.listUsers}</h2>
+		<h:dataTable value="#{adminController.userList}" var="user" styleClass="table table-bordered table-striped">
+	  		<h:column>
+				<f:facet name="header">#{i18n.id}</f:facet>
+    				#{user.id}
+    		</h:column>
+   			<h:column>
+				<f:facet name="header">#{i18n.name}</f:facet>
+    				#{user.name}
+    		</h:column>
+    		<h:column>
+				<f:facet name="header">#{i18n.email}</f:facet>
+    				#{user.email}
+    		</h:column>
+    		<h:column>
+				<f:facet name="header">#{i18n.actions}</f:facet>
+    		<a title="#{i18n.view}" href="#"><i class="icon-eye-open"/></a> <a title="#{i18n.remove}" href="#"><i class="icon-trash"/></a> 
+    		</h:column>
+	</h:dataTable>
+		</div>
+	</h:body>
+</f:view>
+</html>

@@ -1,5 +1,7 @@
 package fr.simplechat.repository.mondodb;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -34,6 +36,12 @@ public class UserRepositoryImpl  implements UserRepository{
 	public void remove(ObjectId id) {
 		datastore.delete(User.class, id);
 		
+	}
+
+	@Override
+	public List<User> findAll() {
+		Query<User> query= datastore.find(User.class);
+		return query.asList();
 	}
 
 }
