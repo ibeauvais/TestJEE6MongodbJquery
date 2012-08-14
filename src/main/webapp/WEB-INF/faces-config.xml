@@ -14,4 +14,16 @@
 			<default-locale>fr</default-locale>
 		</locale-config>
 	</application>
+	  <render-kit>
+        <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Text</renderer-type>
+            <renderer-class>fr.simplechat.web.renderer.CustomHtml5TextRenderer</renderer-class>
+        </renderer>
+          <renderer>
+            <component-family>javax.faces.Input</component-family>
+            <renderer-type>javax.faces.Secret</renderer-type>
+            <renderer-class>fr.simplechat.web.renderer.CustomHtml5SecretRenderer</renderer-class>
+        </renderer>
+    </render-kit>
 </faces-config>

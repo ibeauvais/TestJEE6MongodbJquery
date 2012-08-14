@@ -1,24 +1,12 @@
+
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-    	<meta charset="utf-8"/>
-    	<title>#{i18n.title}</title>
-    	<link href="css/bootstrap.css" rel="stylesheet"/>
-    </head>
-    <body>
-    <ul class="nav nav-pills">
-  <li >
-    <a href="index.htm">#{i18n['menu.home']}</a>
-  </li>
-  <li class="active"> <a href="signin.jsf">#{i18n['menu.registration']}</a></li>
-</ul>
-    
-    
-     <div class="container">
-     	<div class="alert alert-success">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="WEB-INF/templates/main.xhtml">
+	<ui:define name="body">
+		<div class="alert alert-success">
      	#{i18n.creationSuccess}
   
 </div>
-     </div>
-    </body>
-</html>
+	</ui:define>
+</ui:composition>

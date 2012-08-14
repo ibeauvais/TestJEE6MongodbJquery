@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<h:head>
+		<meta charset="utf-8" />
+		<title>#{i18n.title}</title>
+		<h:outputStylesheet name="css/bootstrap.css" />
+	</h:head>
+	<h:body>
+		<ul class="nav nav-pills">
+			<ui:repeat value="#{applicationBean.menu}" var="item">
+			
+   			 	<li class="#{item.key == view.viewId ? 'active' : ''}">
+       			 	<h:link value="#{item.value}" outcome="#{item.key}" />
+    			</li>
+			</ui:repeat>
+		
+		</ul>
+		<div class="container">
+			<ui:insert name="body"></ui:insert>
+		</div>
+	</h:body>
+</f:view>
+</html>

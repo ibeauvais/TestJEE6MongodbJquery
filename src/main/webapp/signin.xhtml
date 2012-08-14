@@ -1,61 +1,34 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-     >
-<head>
-    	<meta charset="utf-8"/>
-    	<title>#{i18n.title}</title>
-    	<link href="css/bootstrap.css" rel="stylesheet" />
-    </head>
-    <body>
-    <ul class="nav nav-pills">
-  <li >
-    <a href="index.jsf">#{i18n['menu.home']}</a>
-  </li >
-  <li class="active"><a href="#">#{i18n['menu.registration']}</a></li>
-</ul>
- <div class="container">
-     	<h:form  id="inputForm" class="form-horizontal" >
-  			<fieldset>
-    <legend>Inscription</legend>
-    
-     <div class="control-group">
-      	<label class="control-label" for="nom"  >#{i18n.name}</label>
-      	<div class="controls">
-      	  <h:inputText id="nom" class="input-xlarge"  label="#{i18n.name}" value="#{userController.user.name}" required="true" /> 
-      	  <h:message for="nom" class="alert alert-error" />
-      </div>
-    </div>
-    <div class="control-group">
-      	<label class="control-label" for="email">#{i18n.email}</label>
-      	<div class="controls">
-              	  <h:inputText id="email" label="#{i18n.email}" value="#{userController.user.email}" class="input-xlarge" required="true"/>
-              	  <h:message for="email" class="alert alert-error" />
-      </div>
-    </div>
-     <div class="control-group">
-      	<label class="control-label" for="password">#{i18n.password}</label>
-      	<div class="controls">
-      	 <h:inputSecret id="password" label="#{i18n.password}"  value="#{userController.user.password}" class="input-xlarge" required="true"/>
-      	   <h:message for="password" class="alert alert-error" />
-      </div>
-       </div>
-      <div class="control-group">
-      	<label class="control-label" for="verifPassword">#{i18n.verifPassword}</label>
-      	<div class="controls">
-      	 <h:inputSecret id="verifPassword" label="#{i18n.verifPassword}" value="#{userController.verifPassword}" class="input-xlarge" required="true"/>
-      	   <h:message for="verifPassword" class="alert alert-error" />
-      </div>
-      </div>
-   
-     <div class="form-actions">
-      <h:commandButton  class="btn btn-primary" value="#{i18n.add}" action="#{userController.doSave}" type="submit"/>
-            <a class="btn" href="index.jsf">#{i18n.cancel}</a>
-          </div>
-          <br/>
-          <h:message globalOnly="true" for="inputForm" errorClass="alert alert-error"  />
-  </fieldset>
-</h:form>
-     </div>
-</body>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="WEB-INF/templates/main.xhtml"
+	xmlns:sc="http://java.sun.com/jsf/composite/sc">
+	<ui:define name="body">
+		<h:form id="inputForm" class="form-horizontal">
+			<fieldset>
+				<legend>Inscription</legend>
+				<sc:ligneText libelle="#{i18n.name}" name="nom" required="true"
+					value="#{userController.user.name}" />
+				<sc:ligneText type="email" libelle="#{i18n.email}" name="email"
+					required="true" value="#{userController.user.email}" />
+				<sc:ligneText type="password" libelle="#{i18n.password}"
+					name="password" required="true"
+					value="#{userController.user.password}" />
+				<sc:ligneText type="password" libelle="#{i18n.verifPassword}"
+					name="verifPassword" required="true"
+					value="#{userController.verifPassword}" />
 
-</html>
+
+				<div class="form-actions">
+					<h:commandButton class="btn btn-primary" value="#{i18n.add}"
+						action="#{userController.doSave}" type="submit" />
+					<a class="btn" href="index.jsf">#{i18n.cancel}</a>
+				</div>
+				<br />
+				<h:message globalOnly="true" for="inputForm"
+					errorClass="alert alert-error" />
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
