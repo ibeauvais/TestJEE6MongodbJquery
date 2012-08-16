@@ -5,6 +5,10 @@ package fr.simplechat.model;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.Email;
@@ -14,12 +18,14 @@ import com.google.code.morphia.annotations.Id;
 import com.google.code.morphia.annotations.Indexed;
 import com.google.code.morphia.utils.IndexDirection;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "user")
 @Entity
 @Table(name="User")
 public class User {
 	
 @Id
+@XmlTransient
 private ObjectId id;
 	
  @NotNull @Size(min = 2, max = 50)  @Email

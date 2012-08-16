@@ -44,4 +44,9 @@ public class UserRepositoryImpl  implements UserRepository{
 		return query.asList();
 	}
 
+	@Override
+	public User findById(String id) {
+		return datastore.get(User.class, new ObjectId(id));
+	}
+
 }

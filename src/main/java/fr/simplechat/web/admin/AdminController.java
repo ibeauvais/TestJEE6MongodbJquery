@@ -1,6 +1,5 @@
 package fr.simplechat.web.admin;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;

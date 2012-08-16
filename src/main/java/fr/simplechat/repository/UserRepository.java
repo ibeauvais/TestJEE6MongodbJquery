@@ -10,9 +10,10 @@ public interface UserRepository {
 	
 	
 	
-	public User createUser(User user);
-	public User findUserByEmail(String email);
-	public void remove(ObjectId id);
-	public List<User> findAll();
+	 User createUser(User user);
+	 User findUserByEmail(String email);
+	 void remove(ObjectId id);
+	 List<User> findAll();
+	User findById(String id);
 
 }

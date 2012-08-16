@@ -49,6 +49,12 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+		 <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -199,6 +205,9 @@
 </profile>
 <profile>
          <id>jetty</id>
+         <properties>
+         <jersey-version>1.13</jersey-version>
+         </properties>
          <dependencies>
             <dependency>
                <groupId>org.jboss.weld.servlet</groupId>
@@ -220,6 +229,22 @@
       <version>${com.sun.faces.version}</version>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${jersey-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+		<version>${jersey-version}</version>
+		</dependency>
+            
 
          </dependencies>
          <build>
