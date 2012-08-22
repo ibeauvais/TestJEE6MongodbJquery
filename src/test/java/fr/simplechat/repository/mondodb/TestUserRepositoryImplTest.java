@@ -28,7 +28,7 @@ public class TestUserRepositoryImplTest extends DefaultTest{
 		 user.setPassword("1234");
 		 user=userRepository.createUser(user);
 		 assertNotNull(userRepository.findUserByEmail(email));
-		 userRepository.remove(user.getId());
+		 userRepository.remove(user.getId().toString());
 	
 		 assertNull(userRepository.findUserByEmail(email));
 	}

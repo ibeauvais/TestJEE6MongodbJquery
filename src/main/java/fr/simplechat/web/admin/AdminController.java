@@ -20,5 +20,10 @@ public class AdminController {
 	List<User> getUserList(){
 		return userService.findAll();
 	}
+	
+	
+	void deleteUser(String id){
+		 userService.remove(id);
+	}
 
 }

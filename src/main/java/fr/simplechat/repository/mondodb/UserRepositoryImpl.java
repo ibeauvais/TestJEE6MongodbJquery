@@ -33,8 +33,8 @@ public class UserRepositoryImpl  implements UserRepository{
 	}
 
 	@Override
-	public void remove(ObjectId id) {
-		datastore.delete(User.class, id);
+	public void remove(String id) {
+		datastore.delete(User.class, new ObjectId(id));
 		
 	}
 

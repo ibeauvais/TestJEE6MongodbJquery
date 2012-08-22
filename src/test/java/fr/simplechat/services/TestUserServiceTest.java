@@ -31,7 +31,7 @@ public class TestUserServiceTest extends DefaultTest {
 		 
 		 User userFound=userRepository.findUserByEmail(user.getEmail());
 		 if(userFound!=null)
-			 userRepository.remove(userFound.getId());
+			 userRepository.remove(userFound.getId().toStringMongod());
 	}
 	
 	@Test(expected=ServiceException.class)

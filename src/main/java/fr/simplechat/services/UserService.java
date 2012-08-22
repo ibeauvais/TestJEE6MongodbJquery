@@ -42,4 +42,8 @@ public class UserService {
 		
 	}
 
+	public void remove(String id) {
+		userRepository.remove(id);
+	}
+
 }
