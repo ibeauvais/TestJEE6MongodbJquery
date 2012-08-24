@@ -28,3 +28,7 @@ tmp/**/*
 .loadpath
 *.orig
 
+*.ipr
+*.iws
+*.iml
+

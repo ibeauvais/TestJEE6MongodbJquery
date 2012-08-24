@@ -9,7 +9,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import fr.simplechat.common.xml.ObjectIdXmlAdapter;
 import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.Email;
 
@@ -25,7 +27,7 @@ import com.google.code.morphia.utils.IndexDirection;
 public class User {
 	
 @Id
-@XmlTransient
+ @XmlJavaTypeAdapter(ObjectIdXmlAdapter.class)
 private ObjectId id;
 	
  @NotNull @Size(min = 2, max = 50)  @Email

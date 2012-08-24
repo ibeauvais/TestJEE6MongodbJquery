@@ -17,13 +17,17 @@ public class AdminController {
 	@Inject
 	private UserService userService;
 	
-	List<User> getUserList(){
+	public List<User> getUserList(){
 		return userService.findAll();
 	}
 	
 	
-	void deleteUser(String id){
-		 userService.remove(id);
+	
+	public boolean isHasUser(){
+		return true;
 	}
+	
+	
+	
 
 }

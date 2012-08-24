@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:sc="http://java.sun.com/jsf/composite/sc"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:c="http://java.sun.com/jsp/jstl/core">
 <f:view>
 	<h:head>
 		<meta charset="utf-8" />
 		<title>#{i18n.adminTitle}</title>
 		<link type="text/css" rel="stylesheet" href="../css/bootstrap.css" />
+		<script type="text/javascript" src="../js/jquery-1.7.1.min.js"/>
+		<script type="text/javascript" src="../js/admin.js"/>
 	</h:head>
 	<h:body>
 		<ul class="nav nav-pills">
@@ -17,24 +22,9 @@
 		</ul>
 		<div class="container">
 		<h2>#{i18n.listUsers}</h2>
-		<h:dataTable value="#{adminController.userList}" var="user" styleClass="table table-bordered table-striped">
-	  		<h:column>
-				<f:facet name="header">#{i18n.id}</f:facet>
-    				#{user.id}
-    		</h:column>
-   			<h:column>
-				<f:facet name="header">#{i18n.name}</f:facet>
-    				#{user.name}
-    		</h:column>
-    		<h:column>
-				<f:facet name="header">#{i18n.email}</f:facet>
-    				#{user.email}
-    		</h:column>
-    		<h:column>
-				<f:facet name="header">#{i18n.actions}</f:facet>
-    		<a title="#{i18n.view}" href="#"><i class="icon-eye-open"/></a> <a title="#{i18n.remove}" href="#"><i class="icon-trash"/></a> 
-    		</h:column>
-	</h:dataTable>
+		<table class="table table-bordered table-striped" id="tabUser">
+
+	</table>
 		</div>
 	</h:body>
 </f:view>
